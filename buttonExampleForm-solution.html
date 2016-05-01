@@ -1,0 +1,54 @@
+<!Doctype html>
+<html ng-app = "buttonExample">
+<head>
+	<title>Button Example with Form</title>
+	<script type="text/javascript" src = "https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.2/angular.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/css/bootstrap.min.css">
+	<style type="text/css">
+		body{
+			padding: 8%;
+		}
+	</style>
+</head>
+<body ng-controller = "textController" ng-init = "pizza = ''; first = ''; last = '';">
+	<h2>Exercise 2: Displaying Text With Buttons</h2>
+	<br/><br/>
+	<form class="form-horizontal">
+		<fieldset>
+			<!-- Form Name -->
+			<legend>Favorite Pizza Form</legend><br/>
+			<!-- First Name input-->
+			<div class="form-group">
+			  <label class="col-md-3 control-label" for="first">First Name</label>  
+			  <div class="col-md-3">
+				  <input name="first" type="text" placeholder="first name" class="form-control input-md" ng-model = "first">
+			  </div>
+
+			<!-- Last Name input-->
+			  <label class="col-md-3 control-label" for="last">Last Name</label>  
+			  <div class="col-md-3">
+				  <input name="last" type="text" placeholder="last name" class="form-control input-md" ng-model = "last">
+			  </div>
+			<!-- Pizza Text input-->
+			  <label class="col-md-3 control-label" for="pizza">Favorite Pizza</label>  
+			  <div class="col-md-3">
+				  <input name="pizza" type="text" placeholder="pizza" class="form-control input-md" ng-model = "pizza">
+			  </div>
+			</div>
+		</fieldset>
+	</form>
+	<br/>
+	<!-- Button -->
+	<button  name="singlebutton" class="btn btn-primary" ng-click = "showText()">Get Text</button>
+	<hr/>
+	{{displayText}}
+</body>
+<script type="text/javascript">
+	var app = angular.module('buttonExample', []);
+
+	app.controller('textController', function($scope){
+
+	});
+
+</script>
+</html>

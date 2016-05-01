@@ -1,0 +1,56 @@
+<!doctype html>
+<html ng-app = "clickExample">
+<head>
+	<title>Button Example</title>
+	<script type="text/javascript" src = "https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.2/angular.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha/css/bootstrap.min.css">
+	<style type="text/css">
+		body{
+			padding: 5%;
+		}
+	</style>
+
+</head>
+
+<body ng-controller = "clickController">
+	<h1>Click Button Example</h1>
+	<p>Ng-click is a directive that allows you to attach click events to the DOM</p>
+	I've been clicked: {{clickCounter}}
+	<br/>
+	<input type = "text" ng-model = "stepByAmount" ng-init = "stepByAmount = 0">
+	<button class = "btn btn-default" ng-click = "increaseOrDecrease('increase')">Increase Me</button>
+	<button class = "btn btn-default" ng-click = "increaseOrDecrease('decrease')">Decrease Me</button>
+	<hr/>
+</body>
+<script type="text/javascript">
+	var app = angular.module('clickExample', []);
+
+	app.controller('clickController', function($scope){
+		$scope.clickCounter = 0;
+
+		$scope.increaseOrDecrease = function(type){
+	
+			var inputCanConvertToNumber = function(){
+				return !isNaN(parseInt($scope.stepByAmount));
+			};			
+
+			if(inputCanConvertToNumber()){
+				if(type === 'increase'){
+					$scope.clickCounter += parseInt($scope.stepByAmount);
+				}
+				else if(type === 'decrease'){
+					$scope.clickCounter -= parseInt($scope.stepByAmount);
+				}
+				else{
+					throw new Error('Action not found');
+				}
+			}
+			else{
+				alert('what the heck are you doing, enter a number!')
+			}
+
+		};
+	});
+
+</script>
+</html>
