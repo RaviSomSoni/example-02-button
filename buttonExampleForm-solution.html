@@ -39,7 +39,7 @@
 	</form>
 	<br/>
 	<!-- Button -->
-	<button  name="singlebutton" class="btn btn-primary" ng-click = "showText()">Get Text</button>
+	<button  name="singlebutton" class="btn btn-primary" ng-click = "displayFavoritePizza()">Get Text</button>
 	<hr/>
 	{{displayText}}
 </body>
@@ -47,7 +47,14 @@
 	var app = angular.module('buttonExample', []);
 
 	app.controller('textController', function($scope){
-
+		$scope.displayFavoritePizza = function(){
+			if($scope.pizza != '' && $scope.first != '' && $scope.last != ''){
+				$scope.displayText =  $scope.first + ' ' + $scope.last + "'s favorite pizza is " + $scope.pizza;
+			}
+			else{
+				alert('Please fill out our pizza form!')
+			}
+		};
 	});
 
 </script>
